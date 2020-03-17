@@ -8,13 +8,20 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'plat',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
-          }
+              import('../plat/tab1.module').then(m => m.Tab1PageModule)
+          },  {
+              path: 'ajouter',
+              loadChildren: () => import('../plat/ajouter-plat/ajouter-plat.module').then( m => m.AjouterPlatPageModule)
+            },
+            {
+              path: 'modifier/:id',
+              loadChildren: () => import('../plat/modifier-plat/modifier-plat.module').then( m => m.ModifierPlatPageModule)
+            }
         ]
       },
       {
@@ -39,14 +46,14 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/plat',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/plat',
     pathMatch: 'full'
   }
 ];

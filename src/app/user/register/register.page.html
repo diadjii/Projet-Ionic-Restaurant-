@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Création Compte</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #form="ngForm" (ngSubmit)="register(form)" method="post">
+    <ion-item>
+        <ion-label position="floating">Prénom</ion-label>
+        <ion-input [(ngModel)]="user.nom" name="fName"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Nom</ion-label>
+      <ion-input ngModel name="lName"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Login</ion-label>
+      <ion-input type="email" ngModel name="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Mot de Passe</ion-label>
+      <ion-input type="password" ngModel name="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Adresse</ion-label>
+      <ion-input type="address" ngModel name="adresse"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Téléphone</ion-label>
+      <ion-input type="tel" ngModel name="phoneNumber"></ion-input>
+    </ion-item>
+
+    <ion-button type="submit" expand="full" color="danger">Créer Compte</ion-button>
+  </form>
+
+</ion-content>
