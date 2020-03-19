@@ -1,22 +1,12 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      Plats
-    </ion-title>
+    <ion-title>Menu du Jour</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="medium">Plats</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-list>
+<ion-content>
+     <ion-list>
+        <ion-radio-group>
   <ion-item *ngFor="let plat of plats" >
       <ion-avatar slot="start">
         <img src="/assets/pic/{{plat.img}}"/>
@@ -35,15 +25,14 @@
       </ion-label>
       <!-- <ion-icon [name]="plat.icon" slot="start"></ion-icon> -->
       <div class="item-note" slot="end">
-        <ion-icon name="create" color="warning"(click)="modifierPlat (plat.id)"></ion-icon>
-        <ion-icon name="trash" color="danger" (click)="deletePlat(plat)"></ion-icon>
+       <ion-radio slot="start" value={{plat.id}} (click)=selectItem(plat)></ion-radio>
       </div>
   </ion-item>
+  </ion-radio-group>
 </ion-list>
 <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-  <ion-fab-button routerLink="/tabs/plat/ajouter">
-    <ion-icon name="add"></ion-icon>
+  <ion-fab-button (click)=sendCommande()>
+   <ion-icon name="restaurant-outline"></ion-icon>
   </ion-fab-button>
  </ion-fab>
-
 </ion-content>

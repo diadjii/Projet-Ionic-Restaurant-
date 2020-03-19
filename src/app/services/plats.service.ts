@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Plat } from '../models/plat';
+import { Commande } from '../models/commande';
+import { User } from '../models/user';
 import {Observable} from 'rxjs';
 
 @Injectable({
@@ -26,6 +28,18 @@ export class PlatsService {
 
   deletePlat(id:number){
     return this.httpClient.delete(this.URL+'/plats/'+id).pipe();
+  }
+
+  getMenu():Observable<Plat[]>{
+    return this.httpClient.get<Plat[]>(this.URL+'/plats?checked=true').pipe();
+  }
+
+  sendCommande(plat:Plat,user:User):Observable<Plat>{
+    return this.httpClient.post<Plat>(this.URL+'/Commandes',{plat,user}).pipe();
+  }
+
+  getCommandes():Observable<Commande[]>{
+    return this.httpClient.get<Commande[]>(this.URL+'/commandes').pipe();
   }
 
   updatePlat(id:number, plat:Plat): Observable<Plat>{

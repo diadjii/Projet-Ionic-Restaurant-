@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 
 export class AjouterPlatPage implements OnInit {
   plat: Plat;
+
   constructor(private service:PlatsService, public toastController: ToastController,private route: Router) {
     this.plat = new Plat();
   }

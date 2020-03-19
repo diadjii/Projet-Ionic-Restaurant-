@@ -2,6 +2,7 @@ import {PlatsService} from '../services/plats.service';
 import { Plat } from '../models/plat';
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-tab1',
@@ -12,11 +13,15 @@ import {Router} from '@angular/router';
 export class Tab1Page implements OnInit {
   plats = [];
 
-  constructor(private route: Router , private api: PlatsService) {
+  constructor(private route: Router , private api: PlatsService, private storage: Storage) {
   }
 
   ngOnInit() {
-    this.getPlats();
+    this.storage.get('token').then((val) => {
+      if(val==null){
+        this.route.navigate(['login'])
+      }
+    })
   }
 
   ionViewWillEnter(){
@@ -25,6 +30,7 @@ export class Tab1Page implements OnInit {
 
   getPlats():void{
     this.api.getPlats().subscribe(response => {
+      console.table(response)
       this.plats = response;
     });
   }

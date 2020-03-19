@@ -3,7 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import { PlatsService } from 'src/app/services/plats.service';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastController,NavController } from '@ionic/angular';
-
+import { Plat } from '../../models/plat';
 
 @Component({
   selector: 'app-modifier-plat',

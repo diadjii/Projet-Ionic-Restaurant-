@@ -21,6 +21,10 @@ const routes: Routes = [
             {
               path: 'modifier/:id',
               loadChildren: () => import('../plat/modifier-plat/modifier-plat.module').then( m => m.ModifierPlatPageModule)
+            },
+            {
+              path: 'menu',
+              loadChildren: () => import('../plat/menu/menu.module').then( m => m.MenuPageModule)
             }
         ]
       },
@@ -43,6 +47,10 @@ const routes: Routes = [
               import('../tab3/tab3.module').then(m => m.Tab3PageModule)
           }
         ]
+      },
+      {
+        path: 'profile',
+        loadChildren: () => import('../user/profile/profile.module').then( m => m.ProfilePageModule)
       },
       {
         path: '',

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {PlatsService} from '../services/plats.service';
+import { Plat } from '../models/plat';
 
 @Component({
   selector: 'app-tab3',
@@ -6,7 +8,24 @@ import { Component } from '@angular/core';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
+    plats = [];
+    constructor( private api: PlatsService,) {}
 
-  constructor() {}
+    ionViewWillEnter(){
+        this.getPlats();
+    }
 
+  getPlats():void{
+    this.api.getPlats().subscribe(response => {
+      console.table(response)
+      this.plats = response;
+    });
+  }
+
+  changeStatus(plat:Plat):void {
+    plat.checked = !plat.checked;
+    this.api.updatePlat(plat.id,plat).subscribe(plat=> {
+        console.log(plat)
+    })
+  }
 }

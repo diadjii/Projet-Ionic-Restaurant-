@@ -1,21 +1,37 @@
 <ion-tabs>
 
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="plat">
-      <ion-icon name="triangle"></ion-icon>
-      <ion-label>Tab 1</ion-label>
-    </ion-tab-button>
+  <ion-tab-bar slot="bottom" *ngIf="adminTab">
 
     <ion-tab-button tab="tab2">
       <ion-icon name="ellipse"></ion-icon>
-      <ion-label>Tab 2</ion-label>
+      <ion-label>Commandes</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="tab3">
+    <ion-tab-button tab="tab3" >
       <ion-icon name="square"></ion-icon>
-      <ion-label>Tab 3</ion-label>
+      <ion-label>Menu</ion-label>
     </ion-tab-button>
-    
+
+    <ion-tab-button tab="plat">
+      <ion-icon name="triangle"></ion-icon>
+      <ion-label>Plats</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="profile">
+      <ion-icon name="triangle"></ion-icon>
+      <ion-label>Profile</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+  <ion-tab-bar slot="bottom" *ngIf="employeTab">
+     <ion-tab-button tab="plat/menu">
+      <ion-icon name="triangle"></ion-icon>
+      <ion-label>Menu</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="profile">
+      <ion-icon name="triangle"></ion-icon>
+      <ion-label>Profile</ion-label>
+    </ion-tab-button>
   </ion-tab-bar>
 
 </ion-tabs>
